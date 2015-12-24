@@ -1,7 +1,7 @@
 var request = require('request').defaults({jar: true});
 var jsdom = require("jsdom");
 var config = require('./config');
-function buglist(){
+function buglist(callback){
   var pageindex=1;
   var pagesize=100;
   request({
@@ -24,6 +24,7 @@ function buglist(){
       });
     });
     console.log(list);
+    if(callback)callback(error,response,list);
   }
 );
 

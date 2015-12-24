@@ -16,8 +16,12 @@ function buglist(){
   function (err, window) {
     var $ = window.$;
     var list=[];
-    $('tr>td>input').each(function(index){
-      list.push($(this).attr('value'))
+    $('tr.text-center').each(function(index){
+      list.push({
+        id:$(this).find('td:first>input').attr('value'),
+        href:$(this).find('td:first>a').attr('href'),
+        title:$(this).find('td:nth-child(4)>a').text()
+      });
     });
     console.log(list);
   }

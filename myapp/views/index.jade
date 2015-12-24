@@ -4,6 +4,11 @@ block content
   div(ng-controller='BugListController as bugList')
     h1= title
     p Welcome to #{title}
+    div(ng-hide='user')
+      h1(ng-bind='user')
+      input(ng-model='username')
+      input(type='password',ng-model='password')
+      button(ng-click='bugList.login()') login
     button(ng-click='bugList.load()') get zendao bug list
     div#buglist
       div(ng-repeat='bug in bugList.list')

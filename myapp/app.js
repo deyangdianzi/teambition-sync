@@ -36,6 +36,17 @@ app.get('/zendao/bug/list',filter.authorize,function(req,res){
 	});
   });
 });
+app.post('/login',function(req,res){
+	var config = require('./config.json');
+	console.log(req.body);
+	if(req.body.username == config.username && req.body.password == config.password){
+		req.session.user_id=req.body.username;
+		res.sendStatus(200);
+	}else{
+ 		req.session.user_id=false;
+		res.sendStatus(401);
+	}
+});
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

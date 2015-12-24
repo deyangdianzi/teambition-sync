@@ -1,5 +1,5 @@
 angular.module('myApp',[])
-.controller('BugListController',['$http',function($http){
+.controller('BugListController',['$http','$scope',function($http,$scope){
    var bugList = this;
    bugList.list= [];
    bugList.load = function(){
@@ -10,4 +10,13 @@ angular.module('myApp',[])
 		}
 	});
    }
+   bugList.login=function(){
+   	$http.post('/login',{username:$scope.username,password:$scope.password}).then(function(response){
+		if(response.status==200){
+			$scope.user=$scope.username;
+		}else{
+			$scope.user=false;
+		}
+	});
+    }
 }]);

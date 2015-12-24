@@ -9,6 +9,8 @@ block content
       input(ng-model='username')
       input(type='password',ng-model='password')
       button(ng-click='bugList.login()') login
+    div(ng-show='user')
+      button(ng-click='bugList.logout()') logout
     button(ng-click='bugList.load()') get zendao bug list
     div#buglist
       div(ng-repeat='bug in bugList.list')

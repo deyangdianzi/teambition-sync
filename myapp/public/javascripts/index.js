@@ -19,4 +19,9 @@ angular.module('myApp',[])
 		}
 	});
     }
+	bugList.logout=function(){
+		$http.post('/logout').then(function(response){
+			if(response.status=200)$scope.user=false;
+		});
+	};
 }]);

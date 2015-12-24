@@ -47,6 +47,10 @@ app.post('/login',function(req,res){
 		res.sendStatus(401);
 	}
 });
+app.post('/logout',function(req,res){
+	req.session.user_id=false;
+	res.sendStatus(200);
+});
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

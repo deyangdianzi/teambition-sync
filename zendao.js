@@ -1,5 +1,5 @@
 var request = require('request').defaults({jar: true});
-var Parser  = require("jq-html-parser");
+var jsdom = require("jsdom");
 var config = require('./config');
 function buglist(){
   var pageindex=1;
@@ -10,13 +10,20 @@ function buglist(){
   },function(error,response,body){
     if(error)console.log(error);
     if(response.statusCode!="200")console.log(response);
-    // console.log(body);
-    parser = new Parser({
-      bugs:{selector:"tr>td>a",attribute:"href",mulitple:true}
+    jsdom.env(
+  body,
+  ["http://code.jquery.com/jquery.js"],
+  function (err, window) {
+    var $ = window.$;
+    var list=[];
+    $('tr>td>input').each(function(index){
+      list.push($(this).attr('value'))
     });
-    result = parser.parse(body);
+    console.log(list);
+  }
+);
 
-    console.log(result);
+    // console.log(result);
   });
 }
 function effortcreate(data,efforts) {

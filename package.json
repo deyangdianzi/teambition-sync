@@ -18,6 +18,7 @@
   "homepage": "https://github.com/lotosbin/teambition-sync#readme",
   "dependencies": {
     "jq-html-parser": "^0.3.0",
+    "jsdom": "^7.2.1",
     "request": "^2.67.0"
   }
 }

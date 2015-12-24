@@ -26,7 +26,12 @@ app.use('/', routes);
 app.use('/users', users);
 //get zendao buglist
 app.get('/zendao/bug/list',function(req,res){
-  res.send([{id:1,title:"from server",href:""}]);
+  var zendao = require('./zendao');
+  zendao.login(function(error,response,body){
+	zendao.buglist(function(error,response,body){
+  		res.send(body);
+	});
+  });
 });
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

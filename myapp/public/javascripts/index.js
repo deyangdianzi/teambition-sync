@@ -1,9 +1,13 @@
 angular.module('myApp',[])
-.controller('BugListController',function(){
+.controller('BugListController',['$http',function($http){
    var bugList = this;
    bugList.list= [];
    bugList.load = function(){
-       bugList.list.push({id:1,title:'test',href:''});
-
+	$http.get('/zendao/bug/list').then(function(res){
+		for(i=0;i<res.data.length;i++){
+			bug=res.data[i];
+			bugList.list.push(bug);
+		}
+	});
    }
-});
+}]);

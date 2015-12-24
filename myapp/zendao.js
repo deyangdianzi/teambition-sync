@@ -19,7 +19,7 @@ function buglist(callback){
     $('tr.text-center').each(function(index){
       list.push({
         id:$(this).find('td:first>input').attr('value'),
-        href:$(this).find('td:first>a').attr('href'),
+        href:'http://115.29.238.236:82/'+$(this).find('td:first>a').attr('href'),
         title:$(this).find('td:nth-child(4)>a').text()
       });
     });

@@ -13,3 +13,4 @@ block content
     div#buglist
       div(ng-repeat='bug in bugList.list')
         h1(ng-bind='bug.title')
+        a(ng-href='{{bug.href}}',target='_blank') detail

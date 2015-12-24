@@ -1,2 +1,4 @@
 node_modules/
 /config.json
+myapp/node_modules/
+data/

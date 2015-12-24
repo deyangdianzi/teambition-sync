@@ -1,0 +1,14 @@
+web:
+  image: node
+  ports:
+    - 18004:3000
+  working_dir: /src/
+  volumes:
+    - ./:/src/
+  command: npm run start
+  links:
+    - mongo
+mongo:
+  image: mongo
+  volumes:
+    - ./data/mongo:/data/db

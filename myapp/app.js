@@ -20,12 +20,15 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+var session = require('express-session');
+app.use(session({secret:'ka kao'}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
+var filter = require('./filter');
 //get zendao buglist
-app.get('/zendao/bug/list',function(req,res){
+app.get('/zendao/bug/list',filter.authorize,function(req,res){
   var zendao = require('./zendao');
   zendao.login(function(error,response,body){
 	zendao.buglist(function(error,response,body){

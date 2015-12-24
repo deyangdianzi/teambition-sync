@@ -1,5 +1,10 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  div(ng-controller='BugListController as bugList')
+    h1= title
+    p Welcome to #{title}
+    button(ng-click='bugList.load()') get zendao bug list
+    div#buglist
+      div(ng-repeat='bug in bugList.list')
+        h1(ng-bind='bug.title')

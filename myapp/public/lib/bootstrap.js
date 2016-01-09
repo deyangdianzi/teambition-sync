@@ -1,4 +1,4 @@
-//import 'angular-material/angular-material.css!'
+import 'angular-material/angular-material.css!'
 //import '/stylesheet/style.css!'
 import angular from 'angular'
 import material from 'angular-material'

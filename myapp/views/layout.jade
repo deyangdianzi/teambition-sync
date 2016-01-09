@@ -6,5 +6,6 @@ html
     script(src='/jspm_packages/system.js')
     script(src='/config.js')
     script System.import('lib/main.js');
-  body
+    style [ng-cloak]{display:none}
+  body(ng-cloak,layout='column')
     block content

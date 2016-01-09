@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "build": "jspm bundle lib/main --inject"
   },
   "dependencies": {
     "body-parser": "~1.13.2",
@@ -16,5 +17,19 @@
     "morgan": "~1.6.1",
     "request": "^2.67.0",
     "serve-favicon": "~2.3.0"
+  },
+  "jspm": {
+    "directories": {
+      "baseURL": "public"
+    },
+    "dependencies": {
+      "angular": "github:angular/bower-angular@^1.4.8",
+      "angular-material": "github:angular/bower-material@^1.0.1"
+    },
+    "devDependencies": {
+      "babel": "npm:babel-core@^5.8.24",
+      "babel-runtime": "npm:babel-runtime@^5.8.24",
+      "core-js": "npm:core-js@^1.1.4"
+    }
   }
 }

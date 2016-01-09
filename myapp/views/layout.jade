@@ -1,9 +1,10 @@
 doctype html
-html(ng-app='myApp')
+html
   head
     title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
     script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js')
-    script(src='/javascripts/index.js')
+    script(src='/jspm_packages/system.js')
+    script(src='/config.js')
+    script System.import('lib/main.js');
   body
     block content

@@ -1,5 +1,5 @@
-angular.module('myApp',[])
-.controller('BugListController',['$http','$scope',function($http,$scope){
+export function buglistcontrollerinit(app){
+app.controller('BugListController',['$http','$scope',function($http,$scope){
    var bugList = this;
    bugList.list= [];
    bugList.load = function(){
@@ -25,3 +25,4 @@ angular.module('myApp',[])
 		});
 	};
 }]);
+}

@@ -19,10 +19,16 @@ app.controller('BugListController', ['$http','$scope',function($http, $scope) {
 		}
 	});
     }
+    bugList.verify = function() {
+        $http.post('/verify').then(response => {
+          $scope.user = response.data;
+        });
+    };
 	bugList.logout = function() {
 		$http.post('/logout').then(response => {
 			if(response.status=200)$scope.user = false;
 		});
 	};
+    bugList.verify();
 }]);
 };
